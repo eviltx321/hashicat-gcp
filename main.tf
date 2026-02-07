@@ -15,6 +15,12 @@ provider "google" {
   region  = var.region
 }
 
+resource "google_project_service" "compute" {
+  project            = var.project_id
+  service            = "compute.googleapis.com"
+  disable_on_destroy = false
+}
+
 resource "google_compute_network" "hashicat" {
   name                    = "${var.prefix}-vpc-${var.region}"
   auto_create_subnetworks = false
@@ -119,3 +125,4 @@ resource "null_resource" "configure-cat-app" {
     }
   }
 }
+
