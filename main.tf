@@ -16,13 +16,13 @@ provider "google" {
 }
 
 resource "google_project_service" "resourcemanager" {
-  project            = var.project_id
+  project            = var.project
   service            = "cloudresourcemanager.googleapis.com"
   disable_on_destroy = false
 }
 
 resource "google_project_service" "serviceusage" {
-  project            = var.project_id
+  project            = var.project
   service            = "serviceusage.googleapis.com"
   disable_on_destroy = false
 }
@@ -137,6 +137,7 @@ resource "null_resource" "configure-cat-app" {
     }
   }
 }
+
 
 
 
