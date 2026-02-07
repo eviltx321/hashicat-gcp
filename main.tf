@@ -16,7 +16,7 @@ provider "google" {
 }
 
 resource "google_project_service" "compute" {
-  project            = var.project_id
+  project            = var.project
   service            = "compute.googleapis.com"
   disable_on_destroy = false
 }
@@ -125,4 +125,5 @@ resource "null_resource" "configure-cat-app" {
     }
   }
 }
+
 
